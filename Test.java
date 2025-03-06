@@ -33,7 +33,7 @@ public class Test {
         String owner = "norrisa";
         */
         // Ask the User to type the info
-        
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the number of steps: ");
@@ -52,7 +52,7 @@ public class Test {
         scanner.close();
 
         DogStepTracker tracker = new DogStepTracker(steps, dogName, dogBreed, owner);
-
+        System.out.println("Writing file...");
         // Serializing 'tracker'
         FileOutputStream fos = new FileOutputStream("dog_tracker.data");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -62,8 +62,9 @@ public class Test {
         FileInputStream fis = new FileInputStream("dog_tracker.data");
         ObjectInputStream ois = new ObjectInputStream(fis);
         DogStepTracker deserializedTracker = (DogStepTracker) ois.readObject(); // down-casting object
-
+        System.out.println("Reading file...");
         System.out.println("Dog Name: " + deserializedTracker.dogName + ", Steps: " + deserializedTracker.steps);
+        System.out.println("Dog Breed: " + deserializedTracker.dogBreed);
         System.out.println("Owner: " + deserializedTracker.owner);
         // TODO: print all the other data 
         // closing streams
