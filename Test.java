@@ -33,7 +33,6 @@ public class Test {
         String owner = "norrisa";
         */
         // Ask the User to type the info
-
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the number of steps: ");
@@ -51,7 +50,9 @@ public class Test {
         // cleanup
         scanner.close();
 
+        // Make the object
         DogStepTracker tracker = new DogStepTracker(steps, dogName, dogBreed, owner);
+        // Write it to a file
         System.out.println("Writing file...");
         // Serializing 'tracker'
         FileOutputStream fos = new FileOutputStream("dog_tracker.data");
